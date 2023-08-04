@@ -1,21 +1,21 @@
 import getForecastWeatherData from "./getForecastData";
-import {getCurrentConditionText, getCurrentConditionIcon} from "./getCurrentCondition"
 import "./style.css";
+import currentWeatherPageController from "./current-weather-page";
 
-console.log("Hello from bundle.js");
-
-// const data = getForecastWeatherData("jerusalem");
-// console.log(data)
 
 async function getData(location) {
   try {
     const data = await getForecastWeatherData(location);
-
-    console.log(data);
-    console.log(getCurrentConditionIcon(data))
+    currentWeatherPageController(data)
   } catch (error) {
     console.log(error);
   }
 }
 
-getData("Squamish");
+function callGetData(e){
+  e.preventDefault()
+  const userInput = document.querySelector("#location-search").value
+  getData(userInput);
+}
+
+document.querySelector("#location-search-form").addEventListener("submit", callGetData)
