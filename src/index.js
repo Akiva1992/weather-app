@@ -12,6 +12,7 @@ async function getData(location) {
   }
 }
 
+
 function callGetData(e){
   e.preventDefault()
   const userInput = document.querySelector("#location-search").value
