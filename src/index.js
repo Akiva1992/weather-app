@@ -1,41 +1,28 @@
-import getForecastWeatherData, { getLocationSuggestions } from "./getForecastData";
+/* eslint-disable import/no-cycle */
 import "./style.css";
-import currentWeatherPageController from "./current-weather-page";
-import renderLocationSuggestions from "./location-search-bar";
+import { bindLocationSuggestionsDropDownEvents  } from "./location-suggestions-drop-down";
+import { getWeatherData, getLocationSuggestions } from "./getForecastData";
 
 
-async function getData(location) {
-  try {
-    const data = await getForecastWeatherData(location);
-    currentWeatherPageController(data)
-  } catch (error) {
-    console.log(error);
-  }
-}
 
-async function getLocation(location) {
-  try {
-    const data = await getLocationSuggestions(location);
-    // console.log(data)
-    renderLocationSuggestions(data)
-  } catch (error) {
-    console.log(error);
-  }
-}
+bindLocationSuggestionsDropDownEvents();
+// bindLocationSuggestionSelectEvent();
 
-function callGetLocation(e){
+
+
+function callGetLocationSuggestions(e){
   e.preventDefault();
   const userInput = document.querySelector("#location-search").value
   if (userInput !== ""){
-    getLocation(userInput)
+    getLocationSuggestions(userInput)
   }
 }
 
-function callGetData(e){
+function callGetWeatherData(e){
   e.preventDefault();
   const userInput = document.querySelector("#location-search").value
-  getData(userInput);
+  getWeatherData(userInput);
 }
 
-document.querySelector("#location-search-form").addEventListener("submit", callGetData)
-document.querySelector("#location-search").addEventListener("input", callGetLocation)
+document.querySelector("#location-search-form").addEventListener("submit", callGetWeatherData)
+document.querySelector("#location-search").addEventListener("input", callGetLocationSuggestions)

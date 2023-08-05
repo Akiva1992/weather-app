@@ -1,4 +1,5 @@
-import createElementAndAddClass from "./utility-fns"
+import { createElementAndAddClass } from "./utility-fns"
+import { bindLocationSuggestionSelectEvent } from "./location-suggestions-drop-down"
 
 function filterLocationSuggestionsData(data){
     const locationSuggestionsArray = []
@@ -21,5 +22,6 @@ export default function renderLocationSuggestions(data){
             searchSuggestionsContainer.append(li);
         })
     }
-}
 
+    bindLocationSuggestionSelectEvent();
+}
