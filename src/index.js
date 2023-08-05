@@ -1,7 +1,7 @@
-import getForecastWeatherData, { getLocationAutocomplete } from "./getForecastData";
+import getForecastWeatherData, { getLocationSuggestions } from "./getForecastData";
 import "./style.css";
 import currentWeatherPageController from "./current-weather-page";
-import autoCompleteRender from "./location-search-bar";
+import renderLocationSuggestions from "./location-search-bar";
 
 
 async function getData(location) {
@@ -15,9 +15,9 @@ async function getData(location) {
 
 async function getLocation(location) {
   try {
-    const data = await getLocationAutocomplete(location);
+    const data = await getLocationSuggestions(location);
     // console.log(data)
-    autoCompleteRender(data)
+    renderLocationSuggestions(data)
   } catch (error) {
     console.log(error);
   }
@@ -26,7 +26,9 @@ async function getLocation(location) {
 function callGetLocation(e){
   e.preventDefault();
   const userInput = document.querySelector("#location-search").value
-  getLocation(userInput)
+  if (userInput !== ""){
+    getLocation(userInput)
+  }
 }
 
 function callGetData(e){

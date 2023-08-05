@@ -14,7 +14,7 @@ export default async function getForecastWeatherData(location) {
     }
   }
 
-export async function getLocationAutocomplete(location) {
+export async function getLocationSuggestions(location) {
     try {
       const response = await fetch(`https://api.weatherapi.com/v1/search.json?key=e0f276e0654440c6b4a212911232107&q=${location}`, { mode: "cors" });
   

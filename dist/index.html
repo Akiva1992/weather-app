@@ -7,27 +7,31 @@
   <script defer src="bundle.js"></script>
 </head>
   <body>
-    <div class="location-search-container">
-      <form action="#" id="location-search-form" autocomplete="off">
-        <input type="text" id="location-search" name="location-search">
-        <div class="search-suggestions-container">
-
-        </div>
-        <label for="location-search"></label>
-        <button type="submit">Search</button>
-      </form>
-    </div>
-    <div id="current-weather-page">
-      <div><h2>Location Data:</h2></div>
-      <div class="location-data">
-        <div class="name-txt"></div>
-        <div class="country-txt"></div>
-        <div class="region-txt"></div>
-        <div class="local-time-txt"></div>
-        <div class="local-date-txt"></div>
+    <div class="current-work">
+      <div class="location-search-container">
+        <form action="#" id="location-search-form" autocomplete="off">
+          <input type="text" id="location-search" name="location-search">
+          <label for="location-search"></label>
+          <button type="submit">Search</button>
+          <div class="search-suggestions-container drop-down">
+            <p class="use-current-location">Use your current location</p>
+            <ul class="search-suggestions-list">
+            </ul>
+          </div>
+        </form>
       </div>
-      <div class="temp-in-c"></div>
-      <div class="temp-in-f"></div>
+      <div id="current-weather-page">
+        <div><h2>Location Data:</h2></div>
+        <div class="location-data">
+          <div class="name-txt"></div>
+          <div class="country-txt"></div>
+          <div class="region-txt"></div>
+          <div class="local-time-txt"></div>
+          <div class="local-date-txt"></div>
+        </div>
+        <div class="temp-in-c"></div>
+        <div class="temp-in-f"></div>
+      </div>
     </div>
   </body>
 </html>
