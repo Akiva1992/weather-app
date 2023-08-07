@@ -1,4 +1,37 @@
-import { getWeatherData } from "./getForecastData";
+import { getWeatherData } from "./forecast-data-fetch-fns";
+
+
+function callApiWithDeviceLocation(lat, long){
+    console.log(lat, long)
+    getWeatherData(`${lat},${long}`)
+}
+
+export function getDeviceGeolocationAndCallApi(){
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            const {latitude} = position.coords;
+            const {longitude} = position.coords;
+            // console.log("Latitude:", latitude);
+            // console.log("Longitude:", longitude);
+            // console.log(position)
+            callApiWithDeviceLocation(latitude, longitude)
+        },
+        error => {
+            console.error("Error getting location:", error);
+        }
+        );
+    } else {
+        console.error("Geolocation is not available in this browser.");
+    }
+}
+
+export function bindGetDeviceGeolocationEvent(){
+    document.querySelector(".use-current-location").addEventListener("click", getDeviceGeolocationAndCallApi)
+}
+
+
+
 
 
 function selectAndCallApiWithSuggestion(e){
@@ -11,6 +44,7 @@ export function bindLocationSuggestionSelectEvent(){
         suggestion.addEventListener("click", selectAndCallApiWithSuggestion)
     });
 }
+
 
 function handleFocus() {
     setTimeout(()=>{

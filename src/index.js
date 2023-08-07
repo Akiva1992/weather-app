@@ -1,13 +1,15 @@
 /* eslint-disable import/no-cycle */
 import "./style.css";
-import { bindLocationSuggestionsDropDownEvents  } from "./location-suggestions-drop-down";
-import { getWeatherData, getLocationSuggestions } from "./getForecastData";
+import { bindGetDeviceGeolocationEvent, bindLocationSuggestionsDropDownEvents, getDeviceGeolocationAndCallApi  } from "./location-suggestions-drop-down";
+import { getWeatherData, getLocationSuggestions, fetchIpData } from "./forecast-data-fetch-fns";
 
 
 
 bindLocationSuggestionsDropDownEvents();
 // bindLocationSuggestionSelectEvent();
-
+bindGetDeviceGeolocationEvent();
+getDeviceGeolocationAndCallApi();
+fetchIpData();
 
 
 function callGetLocationSuggestions(e){

@@ -1,5 +1,5 @@
 import renderLocationSuggestions from "./render-location-suggestions";
-import currentWeatherPageController from "./current-weather-page";
+import currentWeatherPageController from "./home-page";
 
 
 async function fetchWeatherForecast(location) {
@@ -17,6 +17,27 @@ async function fetchWeatherForecast(location) {
       return null;
     }
   }
+
+
+export async function fetchIpData() {
+    try {
+      const response = await fetch("http://ip-api.com/json/?fields=1106141", { mode: "cors" });
+  
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+  
+      const data = await response.json();
+
+      console.log(data)
+      
+      return data;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+
 
 async function fetchLocationSuggestions(location) {
     try {
@@ -38,7 +59,8 @@ async function fetchLocationSuggestions(location) {
   export  async function getWeatherData(location) {
     try {
       const data = await fetchWeatherForecast(location);
-      currentWeatherPageController(data)
+      console.log(data)
+      // initHomePage(data)
     } catch (error) {
       console.log(error);
     }
