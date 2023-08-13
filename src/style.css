@@ -84,6 +84,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .search-suggestions-container{
@@ -95,3 +97,16 @@ body {
     border: black 0.3px solid;
 }
 
+/* -------------Landing Page---------------------- */
+.landing-page{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.set-location-container{
+  border: 1px black solid;
+  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+}

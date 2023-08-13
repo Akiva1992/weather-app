@@ -32,8 +32,6 @@ export function bindGetDeviceGeolocationEvent(){
 
 
 
-
-
 function selectAndCallApiWithSuggestion(e){
     console.log(e.target.innerText)
     getWeatherData(e.target.innerText)

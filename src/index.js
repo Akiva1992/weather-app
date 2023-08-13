@@ -2,14 +2,18 @@
 import "./style.css";
 import { bindGetDeviceGeolocationEvent, bindLocationSuggestionsDropDownEvents, getDeviceGeolocationAndCallApi  } from "./location-suggestions-drop-down";
 import { getWeatherData, getLocationSuggestions, fetchIpData } from "./forecast-data-fetch-fns";
+import landingPageInit from "./landing-page";
 
 
 
-bindLocationSuggestionsDropDownEvents();
+
+// bindLocationSuggestionsDropDownEvents();
 // bindLocationSuggestionSelectEvent();
-bindGetDeviceGeolocationEvent();
-getDeviceGeolocationAndCallApi();
-fetchIpData();
+// bindGetDeviceGeolocationEvent();
+// getDeviceGeolocationAndCallApi();
+// fetchIpData();
+// getWeatherData("jerusalem");
+landingPageInit();
 
 
 function callGetLocationSuggestions(e){
@@ -26,5 +30,5 @@ function callGetWeatherData(e){
   getWeatherData(userInput);
 }
 
-document.querySelector("#location-search-form").addEventListener("submit", callGetWeatherData)
-document.querySelector("#location-search").addEventListener("input", callGetLocationSuggestions)
+// document.querySelector("#location-search-form").addEventListener("submit", callGetWeatherData)
+// document.querySelector("#location-search").addEventListener("input", callGetLocationSuggestions)

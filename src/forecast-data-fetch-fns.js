@@ -57,13 +57,12 @@ async function fetchLocationSuggestions(location) {
 
 
   export  async function getWeatherData(location) {
-    try {
       const data = await fetchWeatherForecast(location);
+      console.log("data in get weather data")
       console.log(data)
+      // currentWeatherPageController(data);
       // initHomePage(data)
-    } catch (error) {
-      console.log(error);
-    }
+      return data;
   }
   
   export async function getLocationSuggestions(location) {
