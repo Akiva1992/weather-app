@@ -1,5 +1,5 @@
 import { getWeatherData } from "./forecast-data-fetch-fns";
-import { getCityName, getCurrentConditionText, getCurrentTempInC, getCurrentVisInKm } from "./home-page-getters";
+import { getChanceOfRain, getCityName, getCurrentConditionText, getCurrentTempInC, getCurrentVisInKm, getForecastSunrise, getForecastSunset } from "./home-page-getters";
 
 
 function setCityName(className, name){
@@ -23,14 +23,29 @@ function setVisTxt(className, visTxt ){
 }
 
 function setVisLogo(className, visLogo ){
-    document.querySelector(`.vis-logo"${className}`).innerHTML = visLogo;
+    document.querySelector(`.vis-logo${className}`).innerHTML = visLogo;
+}
+
+function setSunrise(className, sunrise ){
+    document.querySelector(`.sunrise${className}`).innerHTML = sunrise;
+}
+
+function setSunset(className, sunset ){
+    document.querySelector(`.sunset${className}`).innerHTML = sunset;
+}
+
+function setChanceOfRain(className, chanceOfRain ){
+    document.querySelector(`.daily-chance-of-rain${className}`).innerHTML = chanceOfRain;
 }
 
 function setLandingPageCardDetails(className, data){
     setCityName(className, getCityName(data))
     setCurrentTemp(className, getCurrentTempInC(data))
     setCurrentConditionsTxt(className, getCurrentConditionText(data))
-    setVisTxt(className, getCurrentVisInKm(data));
+    setVisTxt(className, `${getCurrentVisInKm(data)} K`);
+    setSunrise(className, getForecastSunrise(data,0))
+    setSunset(className, getForecastSunset(data,0))
+    setChanceOfRain(className, `${getChanceOfRain(data,0)} chance of rain`)
 }
 
 
@@ -55,6 +70,3 @@ export default async function landingPageInit(){
     
 
 }
-
-
-

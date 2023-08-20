@@ -92,3 +92,7 @@ export function getForecastSunrise(data, day){
 export function getForecastSunset(data, day){
     return data.forecast.forecastday[day].astro.sunset
 };
+
+export function getChanceOfRain(data, day){
+    return data.forecast.forecastday[day].day.daily_chance_of_rain
+};
