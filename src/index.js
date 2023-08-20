@@ -7,13 +7,9 @@ import landingPageInit from "./landing-page";
 
 
 
-// bindLocationSuggestionsDropDownEvents();
-// bindLocationSuggestionSelectEvent();
-// bindGetDeviceGeolocationEvent();
-// getDeviceGeolocationAndCallApi();
+
 // fetchIpData();
 // getWeatherData("jerusalem");
-landingPageInit();
 
 
 function callGetLocationSuggestions(e){
@@ -30,5 +26,19 @@ function callGetWeatherData(e){
   getWeatherData(userInput);
 }
 
-// document.querySelector("#location-search-form").addEventListener("submit", callGetWeatherData)
-// document.querySelector("#location-search").addEventListener("input", callGetLocationSuggestions)
+function initSearchSuggestions(){
+  document.querySelector("#location-search-form").addEventListener("submit", callGetWeatherData)
+  document.querySelector("#location-search").addEventListener("input", callGetLocationSuggestions)
+
+  bindLocationSuggestionsDropDownEvents();
+  bindLocationSuggestionsDropDownEvents();
+}
+
+function initDeviceLocationOption(){
+  bindGetDeviceGeolocationEvent();
+  getDeviceGeolocationAndCallApi();
+}
+
+landingPageInit();
+initDeviceLocationOption();
+initSearchSuggestions();

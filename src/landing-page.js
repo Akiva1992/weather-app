@@ -40,12 +40,12 @@ function setChanceOfRain(className, chanceOfRain ){
 
 function setLandingPageCardDetails(className, data){
     setCityName(className, getCityName(data))
-    setCurrentTemp(className, getCurrentTempInC(data))
+    setCurrentTemp(className, `${getCurrentTempInC(data)} ℃`)
     setCurrentConditionsTxt(className, getCurrentConditionText(data))
     setVisTxt(className, `${getCurrentVisInKm(data)} K`);
     setSunrise(className, getForecastSunrise(data,0))
     setSunset(className, getForecastSunset(data,0))
-    setChanceOfRain(className, `${getChanceOfRain(data,0)} chance of rain`)
+    setChanceOfRain(className, `${getChanceOfRain(data,0)}% chance of rain`)
 }
 
 
@@ -68,5 +68,4 @@ export default async function landingPageInit(){
     const newYorkData = await callApiWitchCItyAndCountry("New-York, USA");
     setLandingPageCardDetails(".new-york", newYorkData);
     
-
 }
